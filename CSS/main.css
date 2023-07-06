@@ -19,7 +19,8 @@
     display: flex;
 }
 
-footer {
+footer,
+.catalogo {
     display: grid;
 }
 
@@ -129,6 +130,17 @@ img {
     right: 0;
     bottom: 2%;
     font-size: 13px;
+}
+
+.catalogo {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.item {
+    background-color: rgba(210, 210, 210, 0.38);
+    border-radius: 10px;
 }
 
 /* FOOTER */
