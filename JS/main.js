@@ -1,12 +1,5 @@
 "use strict";
 
-let btnNav = document.querySelector("#btn-nav");
-let navbar = document.querySelector("#menu");
-btnNav.addEventListener("click", () => {
-    navbar.classList.toggle("ocultar");
-    btnNav.classList.toggle("bi-x-circle");
-});
-
 let main = document.querySelector("#main");
 let links = document.querySelectorAll(".links");
 for (let link of links) {
