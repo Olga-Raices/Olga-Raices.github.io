@@ -1,15 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
+:root {
+    --celeste: #d0e9ff;
+}
+
 * {
     margin: 0;
     padding: 0;
     transition: all 0.2s;
     font-family: sans-serif;
+    list-style: none;
+}
+
+/* Flex y generales */
+.logo,
+.navbar,
+.redes,
+#main-center {
+    display: flex;
+}
+
+footer {
+    display: grid;
 }
 
 /* HEADER */
 .logo img {
-    height: 100px;
+    height: 80px;
 }
 
 .ocultar {
@@ -32,9 +49,13 @@
     text-transform: uppercase;
 }
 
-.navbar {
+header {
     position: sticky;
-    background-color: #d0e9ff;
+    top: 0;
+    background-color: var(--celeste);
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    z-index: 999;
 }
 
 #btn-nav {
@@ -44,7 +65,6 @@
 
 .menu li a,
 .menu {
-    list-style: none;
     color: black;
     text-decoration: none;
 }
@@ -55,17 +75,177 @@
     margin: 0.5em;
     text-align: center;
     padding: 0.5rem;
-    font-weight: bold;
     width: 80vw;
+}
+.menu li,
+.descripcion-slide,
+h1,
+h2,
+.derechos {
+    font-weight: bolder;
+}
+
+/* MAIN */
+#main {
+    min-height: 50vh;
+}
+
+#main-center {
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+img {
+    height: 40vh;
+}
+
+.slide {
+    height: 40vh;
+    width: 95vw;
+}
+
+.slide .carousel-inner .carousel-item img {
+    width: 100%;
+}
+
+.descripcion-slide {
+    color: black;
+    background-color: #c2efffd8;
+    border: 1px solid black;
+    width: 100%;
+    position: absolute;
+    border-radius: 0.5em;
+    right: 0;
+    bottom: 2%;
+    font-size: 13px;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--celeste);
+    min-height: 20vh;
+    border-top: 4px solid black;
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.2fr 0.2fr;
+    grid-template-areas:
+        "info-footer"
+        "redes"
+        "derechos";
+}
+
+.info-footer {
+    grid-area: info-footer;
+    text-align: justify;
+    padding: 1rem;
+    font-size: small;
+}
+
+.title-footer {
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+.redes {
+    grid-area: redes;
+    flex-direction: row;
+    padding: 0;
+    justify-content: space-evenly;
+}
+
+.contacto {
+    font-size: 20px;
+}
+
+.contacto:nth-child(1) i {
+    color: rgba(144, 0, 0, 0.581);
+}
+
+.contacto:nth-child(2) i {
+    color: rgb(60, 137, 96);
+}
+
+.contacto:nth-child(3) i {
+    color: rgba(65, 96, 248, 0.8);
+}
+
+.red {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.red:nth-child(1) i {
+    color: rgb(21, 60, 255);
+}
+
+.red:nth-child(2) i {
+    color: rgb(28, 209, 28);
+}
+
+.red:nth-child(3) i {
+    color: rgb(194, 19, 188);
+}
+
+.derechos {
+    border-top: 1px solid gray;
+    font-size: 13px;
+    text-align: center;
+    grid-area: derechos;
+    align-self: self-end;
+}
+
+@media only screen and (min-width: 600px) {
+    /* TABLET */
+    /* HEADER */
+    .logo img {
+        height: 100px;
+    }
+
+    /* MAIN */
+    img.d-block {
+        height: 50vh;
+        width: 50vw;
+    }
+
+    .slide {
+        height: auto;
+        width: 95vw;
+        max-width: none;
+    }
+
+    .descripcion-slide {
+        padding: 0.5em;
+    }
+
+    /* FOOTER */
+    .red {
+        font-size: 30px;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
+    /*DESKTOP*/
     /* HEADER */
 
-    .logo,
-    .navbar {
-        display: flex;
+    header,
+    footer {
+        border-radius: 0%;
     }
+
+    /* footer {
+    } */
 
     .navbar {
         justify-content: space-around;
@@ -104,5 +284,39 @@
         height: 50px;
         padding-right: 350px;
         font-size: 35px;
+    }
+
+    /* MAIN */
+    img.d-block {
+        height: 90vh;
+        width: 10vw;
+    }
+
+    .slide {
+        height: auto;
+        width: 90vw;
+        max-width: none;
+    }
+
+    .descripcion-slide {
+        font-size: 35px;
+        padding: 0.5em 2em 0.5em 2em;
+        text-transform: uppercase;
+    }
+
+    /* FOOTER */
+
+    .red i:hover {
+        animation: moveUp 1s ease-in-out;
+    }
+
+    /* ANIMACION */
+    @keyframes moveUp {
+        0% {
+            opacity: 0.3;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 }
