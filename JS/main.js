@@ -8,7 +8,6 @@ btnNav.addEventListener("click", () => {
 });
 
 let main = document.querySelector("#main");
-let mainCenter = document.querySelector("#main-center");
 let links = document.querySelectorAll(".links");
 for (let link of links) {
     link.addEventListener("click", (e) => {
@@ -32,41 +31,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function loadContent(id) {
-    loading(1);
-    let responseHome = await fetch(`../HTML/${id}.html`);
-    if (responseHome.ok) {
-        let homeHtml = await responseHome.text();
-        mainCenter.innerHTML = homeHtml;
+    loading();
+    try {
+        let response = await fetch(`../HTML/${id}.html`);
+        if (response.ok) {
+            if (id === "home") {
+                main.classList.add("centrar");
+            } else {
+                main.classList.remove("centrar");
+            }
+            let html = await response.text();
+            main.innerHTML = html;
+        } else {
+            alert("Error al cargar el contenido");
+        }
+    } catch (error) {
+        console.log(error);
+        alert("Error de conexión");
     }
 }
 
-function loading(main) {
-    switch (main) {
-        case 1:
-            mainCenter.innerHTML = `
-                <h5 class="card-title placeholder-glow">
-                    <span class="placeholder col-6"></span>
-                </h5>
-            <p class="card-text placeholder-glow">
-                <span class="placeholder col-7"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-6"></span>
-                <span class="placeholder col-8"></span>
-            </p>
-            <h5 class="card-title placeholder-glow">
-                    <span class="placeholder col-6"></span>
-                </h5>
-            <p class="card-text placeholder-glow">
-                <span class="placeholder col-7"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-6"></span>
-                <span class="placeholder col-8"></span>
-                </p>`;
-            break;
-        case 2:
-            main.innerHTML = `
+function loading() {
+    main.classList.remove("centrar");
+    main.innerHTML = `
                     <h5 class="card-title placeholder-glow">
                         <span class="placeholder col-6"></span>
                     </h5>
@@ -87,6 +74,4 @@ function loading(main) {
                     <span class="placeholder col-6"></span>
                     <span class="placeholder col-8"></span>
                 </p>`;
-            break;
-    }
 }

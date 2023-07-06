@@ -15,8 +15,7 @@
 /* Flex y generales */
 .logo,
 .navbar,
-.redes,
-#main-center {
+.redes {
     display: flex;
 }
 
@@ -90,7 +89,8 @@ h2,
     min-height: 50vh;
 }
 
-#main-center {
+.centrar {
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -148,7 +148,6 @@ footer {
 
 .info-footer {
     grid-area: info-footer;
-    text-align: justify;
     padding: 1rem;
     font-size: small;
 }
@@ -163,6 +162,10 @@ footer {
     flex-direction: row;
     padding: 0;
     justify-content: space-evenly;
+}
+
+.contactos {
+    padding: 0;
 }
 
 .contacto {
