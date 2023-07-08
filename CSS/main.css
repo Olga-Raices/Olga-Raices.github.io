@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Lora|Roboto:400,500);
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
 :root {
@@ -15,7 +16,8 @@
 /* Flex y generales */
 .logo,
 .navbar,
-.redes {
+.redes,
+.item {
     display: flex;
 }
 
@@ -81,7 +83,9 @@ header {
 .descripcion-slide,
 h1,
 h2,
-.derechos {
+.derechos,
+.name-house,
+.resaltado {
     font-weight: bolder;
 }
 
@@ -107,16 +111,13 @@ h2 {
     text-transform: uppercase;
 }
 
-img {
-    height: 40vh;
-}
-
 .slide {
     height: 40vh;
     width: 95vw;
 }
 
 .slide .carousel-inner .carousel-item img {
+    height: 40vh;
     width: 100%;
 }
 
@@ -132,15 +133,58 @@ img {
     font-size: 13px;
 }
 
+/* CARD */
+
 .catalogo {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
-    gap: 5px;
+    gap: 15px;
+    margin: 5px;
+    font-family: "Roboto", sans-serif;
 }
 
 .item {
-    background-color: rgba(210, 210, 210, 0.38);
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+    background-color: #fafafa;
+}
+
+.item .foto img {
+    height: 100%;
+    width: 100%;
     border-radius: 10px;
+}
+
+.name-house {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: underline;
+}
+
+.resaltado {
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: #2196fe;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.info {
+    padding: 5px;
+}
+
+.resaltado:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+    scale: 0.99;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    border-bottom: 5px solid #2196fe;
 }
 
 /* FOOTER */
@@ -244,6 +288,10 @@ footer {
         padding: 0.5em;
     }
 
+    .slide .carousel-inner .carousel-item img {
+        height: 70vh;
+    }
+
     /* FOOTER */
     .red {
         font-size: 30px;
@@ -258,9 +306,6 @@ footer {
     footer {
         border-radius: 0%;
     }
-
-    /* footer {
-    } */
 
     .navbar {
         justify-content: space-around;
@@ -309,7 +354,7 @@ footer {
 
     .slide {
         height: auto;
-        width: 90vw;
+        width: 80vw;
         max-width: none;
     }
 
@@ -317,6 +362,10 @@ footer {
         font-size: 35px;
         padding: 0.5em 2em 0.5em 2em;
         text-transform: uppercase;
+    }
+
+    .slide .carousel-inner .carousel-item img {
+        height: 85vh;
     }
 
     /* FOOTER */
