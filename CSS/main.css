@@ -79,6 +79,7 @@ header {
     padding: 0.5rem;
     width: 80vw;
 }
+
 .menu li,
 .descripcion-slide,
 h1,
@@ -312,13 +313,13 @@ footer {
     }
 
     #btn-nav {
-        display: none;
+        font-size: 50px;
+        cursor: pointer;
     }
 
     .menu,
     .menu li {
         width: auto;
-        display: block;
         cursor: pointer;
     }
 
@@ -332,6 +333,8 @@ footer {
 
     .title {
         font-size: 90px;
+        margin-bottom: 30px;
+        margin-top: 30px;
     }
 
     .logo img {
